@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-block-start: 70px;
+    margin-block-end: 30px;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    color: #eee;
+}
+
+.writedown_area{
+    display: flex;
+    inline-size: 80%;
+    min-inline-size: 250px;
+    max-inline-size: 500px;
+    margin-block-end: 30px;
+
+    input[type="text"] {
+        inline-size: 90%;
+        padding-block: 15px;
+        padding-inline: 20px;
+        letter-spacing: 0.1rem;
+        border: none;
+        background-color: #333;
+        color: #eee;
+        font: {
+            size: 1.2rem;
+            weight: 300;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .addbtn {
+        border-radius: 0;
+        border: none;
+        cursor: pointer;
+        inline-size: 10%;
+        background-color: hsla(180, 100%, 40%, 1);
+        color: #eee;
+        transition: color .3s ease-in-out, background-color .5s ease-in-out;
+        font: {
+            size: 1.8rem;
+            weight: 400;
+        }
+
+        &:hover {
+            background-color: hsla(180, 100%, 30%, 1);
+        }
+    }
+}
+
+ul {
+    overflow: overlay;
+    inline-size: 80%;
+    min-inline-size: 250px;
+    max-inline-size: 500px;
+    block-size: 38vh;
+    min-block-size: 178px;
+    // max-block-size: 360px;
+
+    &::-webkit-scrollbar {
+        inline-size: 0.33rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: hsla(180, 100%, 40%, 0.3);
+        border-radius: 1rem;
+    }
+
+    &:hover {
+
+            &::-webkit-scrollbar-thumb {
+                background-color: hsla(180, 100%, 40%, 1);
+                border-radius: 1rem;
+    
+                &:hover {
+                    background-color:hsla(180, 100%, 30%, 1);
+                }
+            }
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        background-color: #333;
+        padding-block: 15px;
+        padding-inline: 10px;
+        margin-block-end: 2px;
+
+        &:last-child {
+            margin-block-end: 0;
+        }
+
+        label {
+            position: relative;
+            letter-spacing: 0.1rem;
+            padding-inline-start: 50px;
+            -webkit-user-select: none;
+
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            color: #eee;
+            font: {
+                size: 1.1rem;
+                weight: 400;
+            }
+        }
+
+        input[type="checkbox"] {
+            display: none;
+
+            & + label::before {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 15px;
+                cursor: pointer;
+                inline-size: 16px;
+                block-size: 16px;
+                border: 1px solid #eee;
+                background-color: transparent;
+            }
+
+            & + label::after {
+                content: '';
+                inline-size: 12px;
+                block-size: 5px;
+                position: absolute;
+                top: 9px;
+                left: 17px;
+                border-inline-start: 2px solid #333;
+                border-block-end: 2px solid #333;
+                transform: rotate(-45deg);
+                cursor: pointer;
+            }
+
+            &:checked + label::before {
+                background-color: #eee;
+            }
+
+            &:checked + label {
+                color: #666;
+                text-decoration: line-through;
+            }
+        }
+    
+        .closebtn {
+            border: none;
+            background-color: transparent;
+            color: #eee;
+            inline-size: 10%;
+            cursor: pointer;
+            font: {
+                size: 1.2rem;
+                weight: 300;
+            }
+        }
+    }
+}
+
+.clearbtn {
+    border: none;
+    margin-block-start: 50px;
+    background-color: transparent;
+    color: hsla(180, 100%, 40%, 1);
+    transition: color .3s ease-in-out;
+    cursor: pointer;
+    font: {
+        size: 1rem;
+        weight: 300;
+    }
+
+    &:hover {
+        color:hsla(180, 100%, 30%, 1);
+    }
+}
